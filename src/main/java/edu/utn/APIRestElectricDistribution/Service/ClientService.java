@@ -22,7 +22,7 @@ public class ClientService {
     }
 
     public List<Client> GetByName(String name) {
-        return this.clientRepository.findByName(name);
+        return this.clientRepository.findByNameClient(name);
     }
     //endregion
 }

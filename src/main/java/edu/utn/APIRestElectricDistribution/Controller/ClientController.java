@@ -13,12 +13,16 @@ import java.util.List;
 @RequestMapping("/api/client")
 @RestController
 public class ClientController {
+    //region Properties
     private final ClientService clientService;
+    //endregion
 
+    //region Constructor
     @Autowired
     public ClientController(ClientService clientService) {
         this.clientService = clientService;
     }
+    //endregion
 
     //region GET
     @GetMapping("/")
@@ -26,5 +30,9 @@ public class ClientController {
     private List<Client> FindAll(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
         return (name.equals("*")) ? this.clientService.GetAll() : this.clientService.GetByName(name);
     }
+    //endregion
+
+    //region POST
+
     //endregion
 }
