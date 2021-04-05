@@ -10,6 +10,7 @@ import java.util.List;
 public class ClientService {
 
     private final ClientRepository clientRepository;
+    int id;
 
     @Autowired
     public ClientService(ClientRepository clientRepository) {
