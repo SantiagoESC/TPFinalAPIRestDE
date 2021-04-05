@@ -25,7 +25,7 @@ public class ClientController {
     //region GET
     @GetMapping("/")
     //@RequestMapping(path = "/",method = RequestMethod.GET)
-    private List<Client> FindAll(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
+    private List<Client> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
         return (name.equals("*")) ? this.clientService.GetAll() : this.clientService.GetByName(name);
     }
 //    @GetMapping("/{id}")

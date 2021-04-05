@@ -25,8 +25,8 @@ public class ClientService {
         return this.clientRepository.findByNameClient(name);
     }
 
-   /* public Client GetById(Integer id) {
-        return this.clientRepository.
-    }*/
+//   public Client GetById(Integer id) {
+//        return this.clientRepository.
+//    }
     //endregion
 }
