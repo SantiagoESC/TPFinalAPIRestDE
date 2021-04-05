@@ -24,5 +24,9 @@ public class ClientService {
     public List<Client> GetByName(String name) {
         return this.clientRepository.findByNameClient(name);
     }
+
+   /* public Client GetById(Integer id) {
+        return this.clientRepository.
+    }*/
     //endregion
 }
