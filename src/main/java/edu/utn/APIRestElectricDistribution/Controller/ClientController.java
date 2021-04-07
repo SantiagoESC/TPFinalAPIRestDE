@@ -28,6 +28,7 @@ public class ClientController {
     private List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
         return (name.equals("*")) ? this.clientOwnerService.GetAll() : this.clientOwnerService.GetByName(name);
     }
+
     @GetMapping("/{id}")
     private ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{
         return  this.clientOwnerService.GetById(id);
