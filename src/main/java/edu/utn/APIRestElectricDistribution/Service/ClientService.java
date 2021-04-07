@@ -25,8 +25,23 @@ public class ClientService {
         return this.clientRepository.findByNameClient(name);
     }
 
-//   public Client GetById(Integer id) {
-//        return this.clientRepository.
-//    }
+    public Client GetById(Integer id) throws Throwable {
+        return this.clientRepository.findById(id).orElseThrow(Throwable::new);
+    }
+
+    //endregion
+
+    //region UPDATE
+    public void Update(Client client) {
+        this.clientRepository.save(client);
+    }
+
+    public void PostClient(Client client) {
+        this.clientRepository.save(client);
+    }
+
+    public void Delete(Client client) {
+        this.clientRepository.delete(client);
+    }
     //endregion
 }
