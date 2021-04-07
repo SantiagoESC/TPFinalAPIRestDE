@@ -21,7 +21,10 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idAddress;
 
-    private Integer serialNumber;
     private String streetName;
     private Integer streetNumber;
+    private String zipCode;
+
+    //Measurer
+    private Integer serialNumber;
 }

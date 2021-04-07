@@ -32,6 +32,7 @@ public class ClientController {
     private ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{
         return  this.clientOwnerService.GetById(id);
     }
+
     //endregion
 
     //region POST

@@ -20,6 +20,6 @@ public class Measurer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer serialNumber;
-    private String  mark;
-    private String  Model;
+    private String mark;
+    private String model;
 }
