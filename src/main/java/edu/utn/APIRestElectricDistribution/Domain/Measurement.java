@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.Entity;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -12,7 +13,7 @@ import java.util.Date;
 @Entity(name = "measurement")
 public class Measurement {
 
-    private Date dateMeasurement;
+    private LocalDateTime dateMeasurement;
     private float measurement;
     private float price;
 

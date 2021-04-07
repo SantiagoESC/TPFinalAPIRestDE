@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MeasurerRepository extends JpaRepository<Measurer,Integer> {
 
-    //List<Measurer> findByModel(String model);
+    //List<Measurer> findByModel(String );
 }
