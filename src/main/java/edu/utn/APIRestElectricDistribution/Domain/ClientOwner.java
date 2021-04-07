@@ -14,12 +14,14 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @Data
 @Builder
-@Entity(name = "Client")
-public class Client {
+@Entity(name = "ClientOwner")
+public class ClientOwner {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idClient;
-    private String  nameClient;
-    private String  lastNameClient;
+    private Integer idClientOwner;
+    private String  firstNameClientOwner;
+    private String  lastNameClientOwner;
+    private String IDCardNumber; // = DNI
     private Integer idAddress;
 }

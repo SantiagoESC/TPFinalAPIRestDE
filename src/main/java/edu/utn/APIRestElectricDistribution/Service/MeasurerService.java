@@ -1,8 +1,6 @@
 package edu.utn.APIRestElectricDistribution.Service;
 
-import edu.utn.APIRestElectricDistribution.Domain.Client;
 import edu.utn.APIRestElectricDistribution.Domain.Measurer;
-import edu.utn.APIRestElectricDistribution.Repository.ClientRepository;
 import edu.utn.APIRestElectricDistribution.Repository.MeasurerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

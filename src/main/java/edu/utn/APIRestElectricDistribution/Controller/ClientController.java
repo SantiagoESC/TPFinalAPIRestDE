@@ -1,7 +1,7 @@
 package edu.utn.APIRestElectricDistribution.Controller;
 
-import edu.utn.APIRestElectricDistribution.Domain.Client;
-import edu.utn.APIRestElectricDistribution.Service.ClientService;
+import edu.utn.APIRestElectricDistribution.Domain.ClientOwner;
+import edu.utn.APIRestElectricDistribution.Service.ClientOwnerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,40 +12,40 @@ import java.util.List;
 public class ClientController {
 
     //region Properties
-    private final ClientService clientService;
+    private final ClientOwnerService clientOwnerService;
     //endregion
 
     //region Constructor
     @Autowired
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
+    public ClientController(ClientOwnerService clientOwnerService) {
+        this.clientOwnerService = clientOwnerService;
     }
     //endregion
 
     //region GET
     @GetMapping("/")
     //@RequestMapping(path = "/",method = RequestMethod.GET)
-    private List<Client> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
-        return (name.equals("*")) ? this.clientService.GetAll() : this.clientService.GetByName(name);
+    private List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
+        return (name.equals("*")) ? this.clientOwnerService.GetAll() : this.clientOwnerService.GetByName(name);
     }
     @GetMapping("/{id}")
-    private Client GetById(@PathVariable("id") Integer id) throws Throwable{
-        return  this.clientService.GetById(id);
+    private ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{
+        return  this.clientOwnerService.GetById(id);
     }
     //endregion
 
     //region POST
     @PutMapping("/{id}")
-    private void Update(@PathVariable("id") Integer id,@RequestBody Client client) throws Throwable {
-        Client client1 = this.clientService.GetById(id);
-        client.setIdClient(client1.getIdClient());
-        this.clientService.Update(client);
+    private void Update(@PathVariable("id") Integer id,@RequestBody ClientOwner client) throws Throwable {
+        ClientOwner client1 = this.clientOwnerService.GetById(id);
+        client.setIdClientOwner(client1.getIdClientOwner());
+        this.clientOwnerService.Update(client);
     }
 
 
     @PostMapping("/")
-    private void PostClient(@RequestBody Client client){
-        this.clientService.PostClient(client);
+    private void PostClient(@RequestBody ClientOwner client){
+        this.clientOwnerService.PostClient(client);
     }
     //endregion
 
@@ -53,8 +53,8 @@ public class ClientController {
 
     @DeleteMapping("/{id}")
     private void Delete(@PathVariable("id") Integer id) throws Throwable {
-        Client client = this.clientService.GetById(id);
-        this.clientService.Delete(client);
+        ClientOwner client = this.clientOwnerService.GetById(id);
+        this.clientOwnerService.Delete(client);
     }
 
     //endregion

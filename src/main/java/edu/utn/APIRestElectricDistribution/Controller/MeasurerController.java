@@ -1,7 +1,6 @@
 package edu.utn.APIRestElectricDistribution.Controller;
 
 
-import edu.utn.APIRestElectricDistribution.Domain.Client;
 import edu.utn.APIRestElectricDistribution.Domain.Measurer;
 import edu.utn.APIRestElectricDistribution.Service.MeasurerService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,13 +1,13 @@
 package edu.utn.APIRestElectricDistribution.Repository;
 
-import edu.utn.APIRestElectricDistribution.Domain.Client;
+import edu.utn.APIRestElectricDistribution.Domain.ClientOwner;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface ClientRepository extends JpaRepository<Client,Integer> {
-    List<Client> findByNameClient(String nameClient);
+public interface ClientOwnerRepository extends JpaRepository<ClientOwner,Integer> {
+    List<ClientOwner> findByNameClient(String nameClient);
 
 }
