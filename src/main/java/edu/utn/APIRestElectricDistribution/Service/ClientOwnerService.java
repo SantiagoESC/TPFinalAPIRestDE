@@ -22,7 +22,7 @@ public class ClientOwnerService {
     }
 
     public List<ClientOwner> GetByName(String name) {
-        return this.clientOwnerRepository.findByNameClient(name);
+        return this.clientOwnerRepository.findByFirstNameClientOwner(name);
     }
 
     public ClientOwner GetById(Integer id) throws Throwable {

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("/api/client/")
+@RequestMapping("/api/client")
 @RestController
 public class ClientController {
 
@@ -25,12 +25,12 @@ public class ClientController {
     //region GET
     @GetMapping("/")
     //@RequestMapping(path = "/",method = RequestMethod.GET)
-    private List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
+    public List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
         return (name.equals("*")) ? this.clientOwnerService.GetAll() : this.clientOwnerService.GetByName(name);
     }
 
     @GetMapping("/{id}")
-    private ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{
+    public ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{
         return  this.clientOwnerService.GetById(id);
     }
 
@@ -38,7 +38,7 @@ public class ClientController {
 
     //region POST
     @PutMapping("/{id}")
-    private void Update(@PathVariable("id") Integer id,@RequestBody ClientOwner client) throws Throwable {
+    public void Update(@PathVariable("id") Integer id,@RequestBody ClientOwner client) throws Throwable {
         ClientOwner client1 = this.clientOwnerService.GetById(id);
         client.setIdClientOwner(client1.getIdClientOwner());
         this.clientOwnerService.Update(client);
@@ -46,7 +46,7 @@ public class ClientController {
 
 
     @PostMapping("/")
-    private void PostClient(@RequestBody ClientOwner client){
+    public void PostClient(@RequestBody ClientOwner client){
         this.clientOwnerService.PostClient(client);
     }
     //endregion
@@ -54,7 +54,7 @@ public class ClientController {
     //region DELETE
 
     @DeleteMapping("/{id}")
-    private void Delete(@PathVariable("id") Integer id) throws Throwable {
+    public void Delete(@PathVariable("id") Integer id) throws Throwable {
         ClientOwner client = this.clientOwnerService.GetById(id);
         this.clientOwnerService.Delete(client);
     }

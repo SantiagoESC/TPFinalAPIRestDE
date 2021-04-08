@@ -30,6 +30,7 @@ public class MeasurerController {
     private List<Measurer> FindAll(){
         return  this.measurerService.GetAll();
     }
+
     @GetMapping("/{id}")
     private Measurer GetBySerialNumber(@PathVariable("id") Integer serial) throws Throwable{
         return  this.measurerService.GetById(serial);
