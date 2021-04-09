@@ -14,9 +14,8 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-@Builder
 @Entity(name = "ClientOwner")
-public class ClientOwner {
+public class ClientOwner{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

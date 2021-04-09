@@ -9,7 +9,7 @@ import java.util.List;
 
 @RequestMapping("/api/client")
 @RestController
-public class ClientController {
+public class ClientOwnerController {
 
     //region Properties
     private final ClientOwnerService clientOwnerService;
@@ -17,17 +17,17 @@ public class ClientController {
 
     //region Constructor
     @Autowired
-    public ClientController(ClientOwnerService clientOwnerService) {
+    public ClientOwnerController(ClientOwnerService clientOwnerService) {
         this.clientOwnerService = clientOwnerService;
     }
     //endregion
 
     //region GET
-    @GetMapping("/")
-    //@RequestMapping(path = "/",method = RequestMethod.GET)
-    public List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
-        return (name.equals("*")) ? this.clientOwnerService.GetAll() : this.clientOwnerService.GetByName(name);
-    }
+//    @GetMapping("/")
+//    //@RequestMapping(path = "/",method = RequestMethod.GET)
+//    public List<ClientOwner> FindAllOrByName(@RequestParam(value = "name",defaultValue = "*",required = false)  String name){
+//        return (name.equals("*")) ? this.clientOwnerService.GetAll() : this.clientOwnerService.GetByName(name);
+//    }
 
     @GetMapping("/{id}")
     public ClientOwner GetById(@PathVariable("id") Integer id) throws Throwable{

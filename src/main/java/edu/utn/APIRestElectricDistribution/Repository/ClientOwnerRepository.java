@@ -9,5 +9,4 @@ import java.util.List;
 @Repository
 public interface ClientOwnerRepository extends JpaRepository<ClientOwner,Integer> {
     List<ClientOwner> findByFirstNameClientOwner(String firstNameClientOwner);
-
 }
