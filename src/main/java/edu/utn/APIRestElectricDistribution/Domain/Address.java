@@ -23,8 +23,12 @@ public class Address {
 
     private String streetName;
     private Integer streetNumber;
-    private String zipCode;
 
-    //Measurer
-    private Integer serialNumber;
+    //Optional -----------------
+    private String floor;
+    private String departament;
+    //--------------------------
+    private String zipCode;
+    private String city;
+
 }

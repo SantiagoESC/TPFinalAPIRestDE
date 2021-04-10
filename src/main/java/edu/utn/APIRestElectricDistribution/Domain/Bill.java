@@ -9,18 +9,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-@Entity(name = "Rate")
-public class Rate {
+@Entity(name = "Bill")
+public class Bill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idRate;
+    private Integer idBill;
 
-    private String typeRates;
-    private float price;
+    private Integer electricMeterId;
+    private Integer electricalMeasurement_Initial_Id;
+    private Integer electricalMeasurement_Final_Id;
+    private Integer rateId;
+
+    private Date dateBill;
+    private Date expirationDate;
+    private boolean billed;
+    private float totalPrice;
 }

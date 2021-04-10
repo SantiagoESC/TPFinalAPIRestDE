@@ -24,7 +24,7 @@ public class AddressService {
     }
 
 //    public Address GetByZipCode(String zipCode){
-//        return (Address) this.addressRepository.findByZipCode(zipCode);
+//        return this.addressRepository.findByZipCode(zipCode);
 //    }
 
     //Update region
