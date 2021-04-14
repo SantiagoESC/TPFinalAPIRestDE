@@ -1,27 +1,28 @@
  package edu.utn.APIRestElectricDistribution.Domain;
 
-//import lombok.AllArgsConstructor;
-//import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
-//
-//import javax.persistence.Entity;
-//import javax.persistence.GeneratedValue;
-//import javax.persistence.GenerationType;
-//import javax.persistence.Id;
-//
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Data
-//@Builder
-//@Entity(name = "User")
-//public class User {
-//
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Integer idUser;
-//
-//    private String username;
-//    private String password;
-//
-//}
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+@Builder
+@Entity(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id",unique = true)
+    private Integer idUser;
+
+    @Column(name = "userName",unique = true)
+    private String username;
+
+     @Column(name = "password")
+     private String password;
+
+}

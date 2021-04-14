@@ -16,6 +16,8 @@ public class ClientOwnerService {
         this.clientOwnerRepository = clientOwnerRepository;
     }
 
+    //TODO asdasda
+
     //region GET
     public List<ClientOwner> GetAll() {
         return clientOwnerRepository.findAll();
