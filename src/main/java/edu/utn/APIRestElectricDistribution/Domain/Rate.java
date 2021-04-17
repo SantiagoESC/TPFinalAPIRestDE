@@ -5,22 +5,26 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-@Entity(name = "Rate")
+@Entity
 public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_RATE")
     private Integer idRate;
 
+    @NotNull
+    @Column(name = "TYPE_RATES")
     private String typeRates;
+
+    @NotNull
+    @Column(name = "PRICE")
     private float price;
 }

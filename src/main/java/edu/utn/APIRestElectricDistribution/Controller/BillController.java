@@ -22,11 +22,6 @@ public class BillController {
     }
 
     //Get region
-//    @GetMapping("/")
-//    public List<Bill> findAll(@RequestParam(value = "username", defaultValue = "*", required = false) String username){
-//        return (username.equals("*")) ? this.billService.GetAll() : this.billService.GetByUsername(username);
-//    }
-
     @GetMapping("/")
     public List<Bill>findAll(){
         return this.billService.GetAll();

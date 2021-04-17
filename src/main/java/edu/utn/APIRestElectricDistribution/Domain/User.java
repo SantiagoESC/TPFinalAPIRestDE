@@ -5,29 +5,44 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
-@Entity(name = "User")
-public class User {
+ @NoArgsConstructor
+ @AllArgsConstructor
+ @Data
+ @Builder
+ @Entity
+// @Table(name = "users")
+ public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idUser;
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     @Column(name = "ID_USER")
+     private Integer idUser;
 
-    private String firstName;
-    private String lastName;
-    private String username;
-    private String password;
-    private String IDCardNumber;
+     @NotNull
+     @Column(name = "FIRST_NAME")
+     private String firstName;
 
-    //Relation with table ElecticalMeter
-    private Integer ElectricMeterId;
+     @NotNull
+     @Column(name = "LAST_NAME")
+     private String lastName;
 
-}
+     @NotNull
+     @Column(name = "USERNAME")
+     private String username;
+
+     @NotNull
+     @Column(name = "PASSWORD")
+     private String password;
+
+     @NotNull
+     @Column(name = "IDCARD_NUMBER")
+     private String IDCardNumber;
+
+     @NotNull
+     @OneToOne
+     @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID_ELECTRICAL_METER")
+     private ElectricalMeter electricalMeterId;
+ }

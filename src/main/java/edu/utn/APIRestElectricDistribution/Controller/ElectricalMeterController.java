@@ -27,12 +27,12 @@ public class ElectricalMeterController {
     //region GET
     @GetMapping("/")
     //@RequestMapping(path = "/",method = RequestMethod.GET)
-    private List<ElectricalMeter> FindAll(){
+    public List<ElectricalMeter> FindAll(){
         return  this.electricalMeterService.GetAll();
     }
 
     @GetMapping("/{id}")
-    private ElectricalMeter GetBySerialNumber(@PathVariable("id") Integer serial) throws Throwable{
+    public ElectricalMeter GetBySerialNumber(@PathVariable("id") Integer serial) throws Throwable{
         return  this.electricalMeterService.GetById(serial);
     }
     //endregion
