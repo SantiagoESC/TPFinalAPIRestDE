@@ -42,6 +42,7 @@ import javax.validation.constraints.NotNull;
      private String IDCardNumber;
 
      @NotNull
+     //TENDRIA QUE SER ONETOMANY----------------------------------------------------------------------------------------
      @OneToOne
      @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID_ELECTRICAL_METER")
      private ElectricalMeter electricalMeterId;
