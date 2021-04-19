@@ -5,26 +5,42 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
 @Builder
-@Entity(name = "Address")
+@Entity
 public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ID_ADDRESS")
     private Integer idAddress;
 
+    @NotNull
+    @Column(name = "STREET_NAME")
     private String streetName;
+
+    @NotNull
+    @Column(name = "STREET_NUMBER")
     private Integer streetNumber;
+
+    //Optional -----------------
+    @Column(name = "FLOOR")
+    private String floor;
+
+    @Column(name = "DEPARTMENT")
+    private String department;
+    //--------------------------
+    @NotNull
+    @Column(name = "ZIP_CODE")
     private String zipCode;
 
-    //Measurer
-    private Integer serialNumber;
+    @NotNull
+    @Column(name = "CITY")
+    private String city;
+
 }

@@ -23,9 +23,13 @@ public class AddressService {
         return this.addressRepository.findById(id).orElseThrow(Throwable::new);
     }
 
-//    public Address GetByZipCode(String zipCode){
-//        return (Address) this.addressRepository.findByZipCode(zipCode);
-//    }
+    public List<Address> GetByZipCode(String zipCode){
+        return this.addressRepository.findByZipCode(zipCode);
+    }
+
+    public List<Address>GetByCity(String city){
+        return this.addressRepository.findByCity(city);
+    }
 
     //Update region
     public void Update(Address address){

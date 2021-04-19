@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber, idAddress) VALUES ('Santiago', 'Escribas', '123', 1);
 INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber,idAddress) VALUES ('Agustin', 'Bulzomi', '456', 2);
 INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber,idAddress) VALUES ('Pablo', 'Fino', '789', 3);
@@ -27,3 +28,14 @@ insert into USER  (ID , PASSWORD , USERNAME ) values (17, 'vestibulum', 'lbarefo
 insert into USER  (ID , PASSWORD , USERNAME ) values (18, 'morbi', 'rbartensh');
 insert into USER  (ID , PASSWORD , USERNAME ) values (19, 'vitae', 'bfassmani');
 insert into USER  (ID , PASSWORD , USERNAME ) values (20, 'pretium', 'fdudnyj');
+=======
+-- INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber, idAddress) VALUES ('Santiago', 'Escribas', '123', 1);
+-- INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber,idAddress) VALUES ('Agustin', 'Bulzomi', '456', 2);
+-- INSERT INTO ClientOwner (firstNameClientOwner, lastNameClientOwner, IDCardNumber,idAddress) VALUES ('Pablo', 'Fino', '789', 3);
+--
+-- INSERT INTO Measurer (mark, model) VALUES ('BAW', 'MEKWH5-45');
+-- INSERT INTO Measurer (mark, model) VALUES ('JIELI', 'DDS558');
+-- INSERT INTO Measurer (mark, model) VALUES ('BAW', 'DTS726D560R');
+-- INSERT INTO Measurer (mark, model) VALUES ('VARIPLAST', 'DTS7417ABR');
+--
+>>>>>>> origin/Franco

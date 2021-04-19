@@ -1,14 +1,10 @@
 package edu.utn.APIRestElectricDistribution.Controller;
 
-import edu.utn.APIRestElectricDistribution.Domain.Measurement;
-import edu.utn.APIRestElectricDistribution.Service.MeasurementService;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RequestMapping("/api/measurement/")
 @RestController
-public class MeasurementController {
+public class ElectricalMeasurementController {
 
 //    //Properties region
 //    private final MeasurementService measurementService;
