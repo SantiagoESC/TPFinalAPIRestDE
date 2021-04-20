@@ -10,8 +10,10 @@ import java.util.List;
 @Service
 public class BillService {
 
+    //Properties region
     private final BillRepository billRepository;
 
+    //Constructor region
     @Autowired
     public BillService(BillRepository billRepository){
         this.billRepository = billRepository;

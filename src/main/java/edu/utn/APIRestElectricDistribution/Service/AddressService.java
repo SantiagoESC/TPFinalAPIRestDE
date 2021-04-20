@@ -9,9 +9,10 @@ import java.util.List;
 
 @Service
 public class AddressService {
-    //Region
+    //Properties egion
     private final AddressRepository addressRepository;
 
+    //Constructor region
     @Autowired
     public AddressService(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
@@ -38,6 +39,7 @@ public class AddressService {
 
     public void PostAddress(Address address){this.addressRepository.save(address);}
 
+    //Delete region
     public void Delete(Address address){this.addressRepository.delete(address);}
 
 }

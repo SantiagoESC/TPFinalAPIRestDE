@@ -1,34 +1,12 @@
  package edu.utn.APIRestElectricDistribution.Domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+ import com.sun.istack.NotNull;
+ import lombok.AllArgsConstructor;
+ import lombok.Builder;
+ import lombok.Data;
+ import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-<<<<<<< HEAD
-
-@NoArgsConstructor
-@AllArgsConstructor
-@Data
-@Builder
-@Entity(name = "user")
-public class User {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id",unique = true)
-    private Integer idUser;
-
-    @Column(name = "userName",unique = true)
-    private String username;
-
-     @Column(name = "password")
-     private String password;
-
-}
-=======
-import javax.validation.constraints.NotNull;
+ import javax.persistence.*;
 
  @NoArgsConstructor
  @AllArgsConstructor
@@ -69,4 +47,3 @@ import javax.validation.constraints.NotNull;
      @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID_ELECTRICAL_METER")
      private ElectricalMeter electricalMeterId;
  }
->>>>>>> origin/Franco

@@ -1,27 +1,21 @@
 package edu.utn.APIRestElectricDistribution.Controller;
 
+import edu.utn.APIRestElectricDistribution.Service.ElectricalMeasurementService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/api/measurement/")
 @RestController
 public class ElectricalMeasurementController {
 
-//    //Properties region
-//    private final MeasurementService measurementService;
-//
-//    //Constructor region
-//    public MeasurementController(MeasurementService measurementService) {
-//        this.measurementService = measurementService;
-//    }
-//
-//    //Get region
-//    @GetMapping("/")
-//    private List<Measurement>FindAll(){
-//        return this.measurementService.GetAll();
-//    }
-//
-//    //FOR ID
-//
-//    //Post region
-//    @PutMapping()
+    //Properties region
+
+    //Constructor region
+
+    //Get region
+
+
+
+    //Post region
+
 }
