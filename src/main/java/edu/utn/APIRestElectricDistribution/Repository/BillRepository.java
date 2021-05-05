@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Integer> {
-    List<Bill> findBillByDateRange(Date initDate, Date finalDate);
-//    List<Bill>findByNotBilled()
+    //List<Bill> findBillByDateRange(Date initDate, Date finalDate);
+    //List<Bill>findByNotBilled()
 }

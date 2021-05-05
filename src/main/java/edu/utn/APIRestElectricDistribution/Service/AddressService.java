@@ -9,15 +9,18 @@ import java.util.List;
 
 @Service
 public class AddressService {
-    //Properties egion
+    //region Properties
     private final AddressRepository addressRepository;
+    //endregion
 
-    //Constructor region
+    //region Constructor
     @Autowired
     public AddressService(AddressRepository addressRepository) {
         this.addressRepository = addressRepository;
     }
-    //Get region
+    //endregion
+
+    //region Get
     public List<Address>GetAll(){return addressRepository.findAll();}
 
     public Address GetById(Integer id) throws Throwable{
@@ -31,15 +34,18 @@ public class AddressService {
     public List<Address>GetByCity(String city){
         return this.addressRepository.findByCity(city);
     }
+    //endregion
 
-    //Update region
+    //region Update
     public void Update(Address address){
         this.addressRepository.save(address);
     }
 
     public void PostAddress(Address address){this.addressRepository.save(address);}
+    //endregion
 
-    //Delete region
+    //region Delete
     public void Delete(Address address){this.addressRepository.delete(address);}
+    //endregion
 
 }

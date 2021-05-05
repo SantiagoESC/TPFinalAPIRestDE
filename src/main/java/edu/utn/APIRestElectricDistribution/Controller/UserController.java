@@ -11,16 +11,18 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    //Properties region
+    //region Properties
     private final UserService userService;
+    //endregion
 
-    //Constructor region
+    //region Constructor
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
+    //endregion
 
-    //Get region
+    //region Get
     @GetMapping("/")
     public List<User>findAllOrByUsername(@RequestParam(value = "username", defaultValue = "*", required = false) String username){
         return (username.equals("*")) ? this.userService.GetAll() : this.userService.GetByUsername(username);
@@ -30,8 +32,9 @@ public class UserController {
     public User GetById(@PathVariable("id")Integer id) throws Throwable{
         return this.userService.GetById(id);
     }
+    //endregion
 
-    //Post region
+    //region Post
     @PutMapping("/{id}")
     public void Update(@PathVariable("id")Integer id,@RequestBody User user) throws Throwable{
         User user1 = this.userService.GetById(id);
@@ -43,13 +46,15 @@ public class UserController {
     public void PostUser(@RequestBody User user){
         this.userService.PostUser(user);
     }
+    //endregion
 
-    //Delete region
+    //region Delete
 
     @DeleteMapping("/{id}")
     public void Delete(@PathVariable("id")Integer id) throws Throwable{
         User user = this.userService.GetById(id);
         this.userService.Delete(user);
     }
+    //endregion
 
 }

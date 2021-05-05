@@ -12,16 +12,18 @@ import java.util.List;
 @RestController
 public class BillController {
 
-    //Properties region
+    //region Properties
     private final BillService billService;
+    //endregion
 
-    //Constructor region
+    //region Constructor
     @Autowired
     public BillController(BillService billService) {
         this.billService = billService;
     }
+    //endregion
 
-    //Get region
+    //region Get
     @GetMapping("/")
     public List<Bill>findAll(){
         return this.billService.GetAll();
@@ -31,8 +33,9 @@ public class BillController {
     public Bill GetById(@PathVariable("id")Integer id) throws Throwable{
         return this.billService.GetById(id);
     }
+    //endregion
 
-    //Post region
+    //region Post
     @PutMapping("/{id}")
     public void Update(@PathVariable("id")Integer id,@RequestBody Bill bill) throws Throwable{
         Bill bill1 = this.billService.GetById(id);
@@ -44,13 +47,15 @@ public class BillController {
     public void PostUser(@RequestBody Bill bill){
         this.billService.PostBill(bill);
     }
+    //endregion
 
-    //Delete region
+    //region Delete
     @DeleteMapping("/{id}")
     public void Delete(@PathVariable("id")Integer id) throws Throwable{
         Bill bill = this.billService.GetById(id);
         this.billService.Delete(bill);
     }
+    //endregion
 
 
 

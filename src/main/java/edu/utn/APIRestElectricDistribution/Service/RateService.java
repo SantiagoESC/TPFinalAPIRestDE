@@ -9,15 +9,17 @@ import java.util.List;
 @Service
 public class RateService{
 
-    //Properties region
+    //region Properties
     private final RateRepository rateRepository;
+    //endregion
 
-    //Constructor region
+    //region Constructor
     public RateService(RateRepository rateRepository) {
         this.rateRepository = rateRepository;
     }
+    //endregion
 
-    //Get region
+    //region Get
     public List<Rate> GetAll() {
         return rateRepository.findAll();
     }
@@ -25,8 +27,10 @@ public class RateService{
     public Rate GetById(Integer id) throws Throwable {
         return this.rateRepository.findById(id).orElseThrow(Throwable::new);
     }
+    //endregion
 
-    //Update region
+
+    //region Update
     public void Update(Rate rate) {
         this.rateRepository.save(rate);
     }
@@ -34,9 +38,12 @@ public class RateService{
     public void PostRate(Rate rate) {
         this.rateRepository.save(rate);
     }
+    //endregion
 
-    //Delete region
+    //region Delete
     public void Delete(Rate rate) {
         this.rateRepository.delete(rate);
     }
+    //endregion
+
 }

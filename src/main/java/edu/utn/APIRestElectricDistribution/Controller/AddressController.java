@@ -11,16 +11,18 @@ import java.util.List;
 @RestController
 public class AddressController {
 
-    //Properties region
+    //region Properties
     private final AddressService addressService;
+    //endregion
 
-    //Constructor region
+    //region CONSTRUCTOR
     @Autowired
     public AddressController(AddressService addressService) {
         this.addressService = addressService;
     }
+    //endregion
 
-    //Get region
+    //region GET
     @GetMapping("/")
     public List<Address>findAll(){
         return this.addressService.GetAll();
@@ -40,8 +42,9 @@ public class AddressController {
     public List<Address> GetByCity(@PathVariable("city")String city)throws Throwable{
         return this.addressService.GetByCity(city);
     }
+    //endregion
 
-    //Post region
+    //region POST
     @PutMapping("/id")
     public void Update(@PathVariable("id")Integer id, @RequestBody Address address) throws Throwable{
 
@@ -52,13 +55,15 @@ public class AddressController {
 
     @PostMapping("/")
     public void PostAddress(@RequestBody Address address){this.addressService.PostAddress(address);}
+    //endregion
 
-    //Delete region
+    //region DELETE
     @DeleteMapping("/id")
     public void Delete(@PathVariable("id") Integer id) throws Throwable{
 
         Address address = this.addressService.GetById(id);
         this.addressService.Delete(address);
     }
+    //endregion
 
 }

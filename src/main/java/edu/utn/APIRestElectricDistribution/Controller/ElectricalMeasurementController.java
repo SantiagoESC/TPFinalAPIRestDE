@@ -8,14 +8,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ElectricalMeasurementController {
 
-    //Properties region
+    //region Properties
+    //endregion
 
-    //Constructor region
+    //region Constructor
+    //endregion
 
-    //Get region
+    //region Get
+    //endregion
 
-
-
-    //Post region
-
+    //region Post
+    //endregion
 }

@@ -10,16 +10,18 @@ import java.util.List;
 @Service
 public class BillService {
 
-    //Properties region
+    //region Properties
     private final BillRepository billRepository;
+    //endregion
 
-    //Constructor region
+    //region Constructor
     @Autowired
     public BillService(BillRepository billRepository){
         this.billRepository = billRepository;
     }
+    //endregion
 
-    //GET region
+    //region GET
     public List<Bill>GetAll(){
         return this.billRepository.findAll();
     }
@@ -27,17 +29,21 @@ public class BillService {
     public Bill GetById(Integer id) throws Throwable{
         return this.billRepository.findById(id).orElseThrow(Throwable::new);
     }
+    //endregion
 
-    //Update region
+    //region Update
     public void Update(Bill bill){
         this.billRepository.save(bill);
     }
     public void PostBill(Bill bill){
         this.billRepository.save(bill);
     }
+    //endregion
 
-    //Delete region
+    //region Delete
     public void Delete(Bill bill){
         this.billRepository.delete(bill);
     }
+    //endregion
+
 }

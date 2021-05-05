@@ -9,12 +9,16 @@ import java.util.List;
 @Service
 public class ElectricalMeterService {
 
+    //region Properties
     private final ElectricalMeterRepository electricalMeterRepository;
-
+    //endregion
+    
+    //region Constructor
     @Autowired
     public ElectricalMeterService(ElectricalMeterRepository electricalMeterRepository) {
         this.electricalMeterRepository = electricalMeterRepository;
     }
+    //endregion
 
     //region GET
     public List<ElectricalMeter> GetAll() {
@@ -28,5 +32,5 @@ public class ElectricalMeterService {
     public ElectricalMeter GetById(Integer serial) throws Throwable {
         return this.electricalMeterRepository.findById(serial).orElseThrow(Throwable::new);
     }
-
+    //endregion
 }
