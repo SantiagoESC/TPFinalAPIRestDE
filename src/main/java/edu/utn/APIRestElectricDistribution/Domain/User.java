@@ -1,6 +1,8 @@
  package edu.utn.APIRestElectricDistribution.Domain;
 
+ import com.fasterxml.jackson.annotation.JsonIgnore;
  import com.sun.istack.NotNull;
+ import edu.utn.APIRestElectricDistribution.Domain.Enums.Role;
  import lombok.AllArgsConstructor;
  import lombok.Builder;
  import lombok.Data;
@@ -13,33 +15,36 @@
  @Data
  @Builder
  @Entity
-// @Table(name = "users")
  public class User {
 
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
-     @Column(name = "ID_USER")
-     private Integer idUser;
+     @Column(name = "id_user")
+     private Long idUser;
 
      @NotNull
-     @Column(name = "FIRST_NAME")
+     @Column(name = "first_name")
      private String firstName;
 
      @NotNull
-     @Column(name = "LAST_NAME")
+     @Column(name = "last_name")
      private String lastName;
 
      @NotNull
-     @Column(name = "USERNAME")
-     private String username;
+     @Column(name = "ID_card_number")
+     private String IDCardNumber;
 
      @NotNull
-     @Column(name = "PASSWORD")
+     @Column(name = "password")
      private String password;
 
-     @NotNull
-     @Column(name = "IDCARD_NUMBER")
-     private String IDCardNumber;
+     @JsonIgnore
+     @Column(name = "enabled")
+     private Boolean enabled;
+
+     @Enumerated(EnumType.STRING)
+     @Column(name = "user_role")
+     private Role role;
 
      @NotNull
      //TENDRIA QUE SER ONETOMANY----------------------------------------------------------------------------------------

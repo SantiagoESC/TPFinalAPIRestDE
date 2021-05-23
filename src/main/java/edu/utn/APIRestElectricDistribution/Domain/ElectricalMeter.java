@@ -18,28 +18,28 @@ public class ElectricalMeter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_ELECTRICAL_METER")
+    @Column(name = "id_electrical_meter")
     private Integer idElectricalMeter;
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "ID_USER")
+    @JoinColumn(name = "id_user", referencedColumnName = "id_user")
     private User userId;
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ID_ADDRESS")
+    @JoinColumn(name = "id_address", referencedColumnName = "id_address")
     private Address addressId;
 
     @NotNull
-    @Column(name = "SERIAL_NUMBER")
+    @Column(name = "serial_number")
     private Integer serialNumber;
 
     @NotNull
-    @Column(name = "BRAND")
+    @Column(name = "brand")
     private String brand;
 
     @NotNull
-    @Column(name = "MODEL")
+    @Column(name = "model")
     private String model;
 }

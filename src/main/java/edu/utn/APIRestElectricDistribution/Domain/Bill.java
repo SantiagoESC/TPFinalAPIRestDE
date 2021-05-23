@@ -14,49 +14,48 @@ import java.util.Date;
 @Data
 @Builder
 @Entity
-//@Table(name = "bills")
 public class Bill {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_BILL")
+    @Column(name = "id_bill")
     private Integer idBill;
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID_ELECTRICAL_METER")
+    @JoinColumn(name = "id_electrical_meter", referencedColumnName = "id_electrical_meter")
     private ElectricalMeter electricMeterId;
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "ELECTRICAL_MEASUREMENT_INITIAL_ID",
-                referencedColumnName = "ID_ELECTRICAL_MEASUREMENT")
+    @JoinColumn(name = "electrical_measurement_initial_id",
+                    referencedColumnName = "ID_ELECTRICAL_MEASUREMENT")
     private ElectricalMeasurement electricalMeasurement_Initial_Id;
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "ELECTRICAL_MEASUREMENT_FINAL_ID",
-                referencedColumnName = "ID_ELECTRICAL_MEASUREMENT")
+    @JoinColumn(name = "electrical_measurement_final_id",
+                    referencedColumnName = "id_electrical_measurement")
     private ElectricalMeasurement electricalMeasurement_Final_Id;
 
     @NotNull
     @OneToOne
-    @JoinColumn(name = "RATE_ID", referencedColumnName = "ID_RATE")
+    @JoinColumn(name = "id_rate", referencedColumnName = "id_rate")
     private Rate rateId;
 
     @NotNull
-    @Column(name = "DATE_BILL")
+    @Column(name = "date_bill")
     private Date dateBill;
 
     @NotNull
-    @Column(name = "EXPIRATION_DATE")
+    @Column(name = "expiration_date")
     private Date expirationDate;
 
     @NotNull
-    @Column(name = "BILLED")
+    @Column(name = "billed")
     private boolean billed;
 
     @NotNull
-    @Column(name = "TOTAL_PRICE")
+    @Column(name = "total_price")
     private float totalPrice;
 }

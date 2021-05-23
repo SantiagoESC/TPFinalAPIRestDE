@@ -20,20 +20,20 @@ public class ElectricalMeasurement {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_ELECTRICAL_MEASUREMENT")
+    @Column(name = "id_electrical_measurement")
     private Integer idElectricalMeasurement;
 
     @NotNull
     @ManyToOne
-    @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID_ELECTRICAL_METER")
+    @JoinColumn(name = "id_electrical_meter", referencedColumnName = "id_electrical_meter")
     private ElectricalMeter electricalMeterId;
 
     @NotNull
-    @Column(name = "MEASUREMENT_DATE")
+    @Column(name = "measurement_date")
     private LocalDateTime measurementDate;
 
     @NotNull
-    @Column(name = "MEASUREMENT_KWH")
+    @Column(name = "measurement_kwh")
     private float measurementKWH;
 
 

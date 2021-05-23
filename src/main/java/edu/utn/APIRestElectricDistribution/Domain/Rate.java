@@ -17,14 +17,14 @@ public class Rate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_RATE")
+    @Column(name = "id_rate")
     private Integer idRate;
 
     @NotNull
-    @Column(name = "TYPE_RATES")
+    @Column(name = "type_rates")
     private String typeRates;
 
     @NotNull
-    @Column(name = "PRICE")
+    @Column(name = "price")
     private float price;
 }

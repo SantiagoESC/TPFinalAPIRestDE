@@ -17,30 +17,30 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID_ADDRESS")
+    @Column(name = "id_address")
     private Integer idAddress;
 
     @NotNull
-    @Column(name = "STREET_NAME")
+    @Column(name = "street_name")
     private String streetName;
 
     @NotNull
-    @Column(name = "STREET_NUMBER")
+    @Column(name = "street_number")
     private Integer streetNumber;
 
     //Optional -----------------
-    @Column(name = "FLOOR")
+    @Column(name = "floor")
     private String floor;
 
-    @Column(name = "DEPARTMENT")
+    @Column(name = "department")
     private String department;
     //--------------------------
     @NotNull
-    @Column(name = "ZIP_CODE")
+    @Column(name = "zip_code")
     private String zipCode;
 
     @NotNull
-    @Column(name = "CITY")
+    @Column(name = "city")
     private String city;
 
 }
