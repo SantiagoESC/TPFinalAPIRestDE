@@ -45,6 +45,7 @@ public class UserController {
         if(!newClient.isValid()) throw new ValidationException("Error - does not include all necessary information ");
         return userService.addClient(newClient);
     }
+
     //endregion
 
     //region getClient by id card

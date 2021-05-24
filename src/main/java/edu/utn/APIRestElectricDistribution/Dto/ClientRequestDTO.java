@@ -23,6 +23,6 @@ public class ClientRequestDTO implements Serializable {
 
 
     public Boolean isValid() {
-        return /*cityId != null &&*/ !StringUtils.isBlank(firstName) && !StringUtils.isBlank(lastName) && !StringUtils.isBlank(IDCardNumber)  && !StringUtils.isBlank(password) ;
+        return !StringUtils.isBlank(firstName) && !StringUtils.isBlank(lastName) && !StringUtils.isBlank(IDCardNumber)  && !StringUtils.isBlank(password) ;
     }
 }
