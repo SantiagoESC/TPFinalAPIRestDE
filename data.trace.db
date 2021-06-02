@@ -1,0 +1,6 @@
+2021-06-01 23:45:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users(first_name, last_name, id_number, password) values ('Juan', 'Perez', '123456789', 'Test1234!') ,('Jose', 'Perez', '87654321','Test1234!') [42102-200]
+2021-06-01 23:47:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "USERS" not found; SQL statement:
+INSERT INTO users(first_name, last_name, id_number, password) values ('Juan', 'Perez', '123456789', 'Test1234!') ,('Jose', 'Perez', '87654321','Test1234!') [42102-200]
