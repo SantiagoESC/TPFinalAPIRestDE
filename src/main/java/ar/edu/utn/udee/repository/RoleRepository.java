@@ -1,13 +1,13 @@
 package ar.edu.utn.udee.repository;
 
-import ar.edu.utn.udee.models.User;
+import ar.edu.utn.udee.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
-	Optional<User> findByDocumentNumber(String documentNumber);
-	User findById(long id);
+public interface RoleRepository extends JpaRepository<Role, Long> {
+	Role getRoleById(long id);
+	Optional<Role> findByRoleName(String roleName);
 }

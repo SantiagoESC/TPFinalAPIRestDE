@@ -1,0 +1,9 @@
+package ar.edu.utn.udee.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("")
+public class TariffController {
+}

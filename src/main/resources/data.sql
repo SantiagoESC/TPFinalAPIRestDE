@@ -1,4 +1,0 @@
-
-INSERT INTO USERS (ID, FIRST_NAME, LAST_NAME, ID_NUMBER, PASSWORD, USER_ROLE)
-VALUES (1, 'Juan', 'Perez', '123456789', 'Test1234!', 'CLIENT')
-     , (2, 'Admin', 'Perez', '87654321', 'Test1234!', 'EMPLOYEE');

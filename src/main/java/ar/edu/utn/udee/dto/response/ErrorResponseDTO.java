@@ -1,31 +1,32 @@
 package ar.edu.utn.udee.dto.response;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 
+import java.util.Arrays;
+import java.util.List;
 
-@Builder
 @Data
-@ApiModel(value = "Error Response", description = "Information of the error ")
+@Builder
 public class ErrorResponseDTO {
 
-    @JsonProperty
-    @ApiModelProperty(value = "Code HttpStatus Error")
-    private Integer code;
-
-    @JsonProperty
-    @ApiModelProperty(value = "Name HttpStatus Error")
-    private String status;
-
-    @JsonProperty
-    @ApiModelProperty(value = "Message of the Error")
+    private HttpStatus status;
     private String message;
+    private List<String> errors;
 
-    @JsonProperty
-    @ApiModelProperty(value = "URI of the Error")
-    private String uri;
+    public ErrorResponseDTO(HttpStatus status, String message, List<String> errors) {
+        super();
+        this.status = status;
+        this.message = message;
+        this.errors = errors;
+    }
+
+    public ErrorResponseDTO(HttpStatus status, String message, String error) {
+        super();
+        this.status = status;
+        this.message = message;
+        errors = Arrays.asList(error);
+    }
 
 }

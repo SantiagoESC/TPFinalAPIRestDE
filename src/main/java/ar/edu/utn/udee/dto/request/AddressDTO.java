@@ -1,8 +1,11 @@
 package ar.edu.utn.udee.dto.request;
 
+import lombok.Data;
+
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
+@Data
 public class AddressDTO implements Serializable {
 
     private static final long serialVersionUID = -2005337807991914802L;
