@@ -13,4 +13,5 @@ import java.lang.annotation.Target;
 @AuthenticationPrincipal
 @Parameter(hidden = true)
 public @interface CurrentUser {
+
 }

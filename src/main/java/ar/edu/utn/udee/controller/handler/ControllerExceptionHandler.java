@@ -26,6 +26,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
+import javax.validation.ValidationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -55,6 +56,8 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     private ResponseEntity<Object> handleErrors (BindException ex, HttpHeaders headers, WebRequest request){
         logger.info(ex.getClass().getName());
 
+        final String message = "Invalid Request Body";
+
         final List<String> errors = new ArrayList<>();
         for (final FieldError error : ex.getBindingResult().getFieldErrors()) {
             errors.add(error.getField() + ": " + error.getDefaultMessage());
@@ -62,7 +65,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
         for (final ObjectError error : ex.getBindingResult().getGlobalErrors()) {
             errors.add(error.getObjectName() + ": " + error.getDefaultMessage());
         }
-        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
+        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, message, errors);
         return handleExceptionInternal(ex, errorResponseDTO, headers, errorResponseDTO.getStatus(), request);
     }
 
@@ -128,7 +131,15 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
             errors.add(violation.getRootBeanClass().getName() + " " + violation.getPropertyPath() + ": " + violation.getMessage());
         }
 
-        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, ex.getLocalizedMessage(), errors);
+        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, ex.getMessage(), errors);
+        return new ResponseEntity<>(errorResponseDTO, new HttpHeaders(), errorResponseDTO.getStatus());
+    }
+
+    @ExceptionHandler({ ValidationException.class })
+    public ResponseEntity<Object> handleValidationException(final ValidationException ex) {
+        logger.info(ex.getClass().getName());
+        final String message = "Invalid";
+        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.BAD_REQUEST, ex.getMessage(), message);
         return new ResponseEntity<>(errorResponseDTO, new HttpHeaders(), errorResponseDTO.getStatus());
     }
 
@@ -136,8 +147,9 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler({ AccessDeniedException.class })
     public ResponseEntity<Object> handleForbiddenHandler(final AccessDeniedException ex) {
         logger.info(ex.getClass().getName());
-
-        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.FORBIDDEN, ex.getLocalizedMessage(), "Unauthorized");
+        final String message = "Unauthorized";
+        final ErrorResponseDTO errorResponseDTO = new ErrorResponseDTO(HttpStatus.FORBIDDEN, ex.getLocalizedMessage(),
+                message);
         return new ResponseEntity<>(errorResponseDTO, new HttpHeaders(), errorResponseDTO.getStatus());
     }
 
@@ -201,6 +213,7 @@ public class ControllerExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
     // 500
+
     @ExceptionHandler({ AlreadyExistsException.class })
     public ResponseEntity<Object> handleAlreadyExistsException(final AlreadyExistsException ex) {
         logger.info(ex.getClass().getName());

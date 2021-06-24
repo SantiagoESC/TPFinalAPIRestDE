@@ -39,7 +39,7 @@ public class Bill {
     private boolean isPaid;
 
     @Column(name = "TOTAL_PRICE")
-    private float totalPrice;
+    private Double totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID", nullable = false)
@@ -58,4 +58,5 @@ public class Bill {
     @JoinColumn(name = "ELECTRICAL_MEASUREMENT_FINAL_ID",
             referencedColumnName = "ID")
     private ElectricalMeasurement electricalMeasurementFinalId;
+
 }

@@ -1,7 +1,6 @@
 package ar.edu.utn.udee.mapper;
 
-import ar.edu.utn.udee.dto.AuthorizationRequest;
-import ar.edu.utn.udee.dto.UserResponse;
+import ar.edu.utn.udee.dto.response.UserResponseDTO;
 import ar.edu.utn.udee.models.User;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -20,21 +19,12 @@ class UserMapperTest {
 	void toResponseShouldReturnValidUserResponse() {
 		User user = User.builder().id(USER_ID).firstName(USER_NAME).password("USER_PASSWORD").build();
 
-		UserResponse userResponse = UserMapper.toResponse(user);
+		UserResponseDTO userResponseDTO = UserMapper.toResponse(user);
 
-		assertEquals(user.getId(), userResponse.getId());
-		assertEquals(user.getFirstName(), userResponse.getFirstName());
-	}
+		String fullName = user.getFirstName() + " " + user.getLastName();
 
-	@Test
-	void toDomainShouldReturnValidUser() {
-		AuthorizationRequest authorizationRequest = AuthorizationRequest.builder().documentNumber(USER_NAME)
-				.password("USER_PASSWORD").build();
-
-		User user = UserMapper.toDomain(authorizationRequest);
-
-		assertEquals(authorizationRequest.getDocumentNumber(), user.getDocumentNumber());
-		assertEquals(authorizationRequest.getPassword(), user.getPassword());
+		assertEquals(fullName, userResponseDTO.getFullName());
+		assertEquals(user.getDocumentNumber(), userResponseDTO.getDocumentNumber());
 	}
 
 }

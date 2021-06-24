@@ -8,5 +8,6 @@ import java.util.Optional;
 
 @Repository
 public interface ElectricalMeterRepository extends JpaRepository<ElectricalMeter,Integer> {
+
     Optional<ElectricalMeter> findBySerialNumber(String serialNumber);
 }

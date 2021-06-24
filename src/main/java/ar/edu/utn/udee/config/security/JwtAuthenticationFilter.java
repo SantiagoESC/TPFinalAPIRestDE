@@ -14,7 +14,8 @@ import javax.servlet.FilterChain;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import static ar.edu.utn.udee.utils.Constants.HEADER_AUTHORIZATION_KEY;
 import static ar.edu.utn.udee.utils.Constants.TOKEN_BEARER_PREFIX;
@@ -52,11 +53,10 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 	}
 
 	private String jsonResponse(String token) {
-		long date = new Date().getTime();
+		String  date = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 		return "{\"timestamp\": " + date + ", "
 				+ "\"token\": \"" + token +"\", "
-				+ "\"message\": \"Authentication successfully\", "
-				+ "\"path\": \"/login\"}";
+				+ "\"message\": \"Authentication successfully\"}";
 	}
 
 }

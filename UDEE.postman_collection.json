@@ -1,0 +1,376 @@
+{
+	"info": {
+		"_postman_id": "d3df1830-1959-4125-bffe-5b43b5cb8696",
+		"name": "UDEE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Backoffice Controller",
+			"item": [
+				{
+					"name": "Electrical Meter Controller",
+					"item": [
+						{
+							"name": "Register Electrical Meter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:9001/backoffice/electrical-meters",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"backoffice",
+										"electrical-meters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Electrical Meters",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:9001/backoffice/electrical-meters",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"backoffice",
+										"electrical-meters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Electrical Meter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:9001/backoffice/electrical-meters",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"backoffice",
+										"electrical-meters"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Electrical Meter",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:9001/backoffice/electrical-meters",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"backoffice",
+										"electrical-meters"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Rate Controller",
+					"item": [
+						{
+							"name": "Rates",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:9001/backoffice/rates",
+									"host": [
+										"localhost"
+									],
+									"port": "9001",
+									"path": [
+										"backoffice",
+										"rates"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Register Client",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": null,\r\n    \"lastName\": \" \",\r\n    \"documentNumber\": \"123456782\",\r\n    \"password\": \"Password1!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:9001/users/clients",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"users",
+								"clients"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Controller",
+			"item": [
+				{
+					"name": "User Profile",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5ODc2NTQzMjEiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSIsImlhdCI6MTYyNDI1MTUzOCwiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0MjgwMzM4fQ.wBEGwNGw0yo-fXq6P0_RhGzVklcmjZvnlVXKjUuGmNE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9001/users/profile",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"users",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Web & Android Controller",
+			"item": []
+		},
+		{
+			"name": "Infra Controller",
+			"item": [
+				{
+					"name": "Electrical Measurement",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"serialNumber\": \"ABC-123\",\r\n    \"measurementKWH\": 1.5,\r\n    \"date\": \"2021/06/16 16:16:16\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9001/infra/electrical-measurement",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"infra",
+								"electrical-measurement"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Swagger & Actuator",
+			"item": [
+				{
+					"name": "Actuator",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "0fd4e385-1284-43c4-a7b1-1f5066196105",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/actuator",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"actuator"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Swagger",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:9001/api/v2/api-docs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"api",
+								"v2",
+								"api-docs"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": \"123456789\",\r\n    \"password\": \"password1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:9001/login",
+					"host": [
+						"localhost"
+					],
+					"port": "9001",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

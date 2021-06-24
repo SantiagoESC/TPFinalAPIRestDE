@@ -1,10 +1,14 @@
 package ar.edu.utn.udee.service;
 
-import org.springframework.stereotype.Service;
+import ar.edu.utn.udee.dto.request.ElectricalMeterRequestDTO;
+import ar.edu.utn.udee.dto.response.ElectricalMeterResponseDTO;
 
-@Service
-public class ElectricalMeterService {
+import java.util.List;
 
+public interface ElectricalMeterService {
+
+    ElectricalMeterResponseDTO saveElectricalMeterForClient(ElectricalMeterRequestDTO requestDTO);
+
+    List<ElectricalMeterResponseDTO> getElectricalMeterByDocumentNumber(String documentNumber);
 
 }
-

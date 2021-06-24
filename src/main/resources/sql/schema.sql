@@ -1,7 +1,7 @@
 -- ==========================================================
 --  TP - UDEE
 -- ==========================================================
-/*
+
 create
 database electric_distribution;
 use
@@ -9,7 +9,7 @@ electric_distribution;
 set
 global time_zone = '-3:00';*/
 
-//DROP TABLE IF EXISTS USERS;
+--DROP TABLE IF EXISTS USERS;
 
 CREATE TABLE USERS
 (
@@ -42,8 +42,8 @@ CREATE TABLE USER_ROLES
 );
 
 
-//DROP TABLE IF EXISTS ADDRESS;
-CREATE TABLE ADDRESS
+--DROP TABLE IF EXISTS ADDRESS;
+CREATE TABLE ADDRESSES
 (
     ID            BIGINT auto_increment,
     STREET_NAME   VARCHAR(50) NOT NULL,
@@ -55,7 +55,7 @@ CREATE TABLE ADDRESS
     CONSTRAINT PK_ADDRESS PRIMARY KEY (ID)
 );
 
-//DROP TABLE IF EXISTS ELECTRICAL_METERS;
+--DROP TABLE IF EXISTS ELECTRICAL_METERS;
 CREATE TABLE ELECTRICAL_METERS
 (
     ID            BIGINT auto_increment,
@@ -67,11 +67,11 @@ CREATE TABLE ELECTRICAL_METERS
     IS_ENABLED    boolean default true,
     CONSTRAINT PK_ELECTRICAL_METER PRIMARY KEY (ID),
     CONSTRAINT FK_USER_ID FOREIGN KEY (USER_ID) references USERS (ID),
-    CONSTRAINT FK_ADDRESS_ID FOREIGN KEY (ADDRESS_ID) references ADDRESS (ID),
+    CONSTRAINT FK_ADDRESS_ID FOREIGN KEY (ADDRESS_ID) references ADDRESSES (ID),
     CONSTRAINT UNQ_SERIAL_NUMBER UNIQUE (SERIAL_NUMBER)
 );
 
-//DROP TABLE IF EXISTS ELECTRICAL_MEASURMENTS;
+--DROP TABLE IF EXISTS ELECTRICAL_MEASURMENTS;
 CREATE TABLE ELECTRICAL_MEASUREMENTS
 (
     ID                  BIGINT auto_increment,
@@ -82,7 +82,7 @@ CREATE TABLE ELECTRICAL_MEASUREMENTS
     CONSTRAINT fk_electrical_measurements FOREIGN KEY (ELECTRICAL_METER_ID) references ELECTRICAL_METERS (ID)
 );
 
-//DROP TABLE IF EXISTS RATES;
+--DROP TABLE IF EXISTS RATES;
 CREATE TABLE RATES
 (
     ID        BIGINT auto_increment,
@@ -91,7 +91,7 @@ CREATE TABLE RATES
     CONSTRAINT pk_rates PRIMARY KEY (id)
 );
 
-//DROP TABLE IF EXISTS BILLS;
+--DROP TABLE IF EXISTS BILLS;
 CREATE TABLE BILLS
 (
     ID                                BIGINT auto_increment,
@@ -105,7 +105,7 @@ CREATE TABLE BILLS
     TOTAL_PRICE                       DOUBLE NOT NULL,
     CONSTRAINT PK_BILLS PRIMARY KEY (ID),
     CONSTRAINT fk_id_electrical_meter FOREIGN KEY (electrical_meter_id) REFERENCES ELECTRICAL_METERS (ID),
-    CONSTRAINT fk_id_electrical_measurement_initial FOREIGN KEY (electrical_measurement_initial_id) REFERENCES ELECTRICAL_MEASURMENTS (ID),
-    CONSTRAINT fk_id_electrical_measurement_final FOREIGN KEY (electrical_measurement_final_id) REFERENCES ELECTRICAL_MEASURMENTS (ID),
+    CONSTRAINT fk_id_electrical_measurement_initial FOREIGN KEY (electrical_measurement_initial_id) REFERENCES ELECTRICAL_MEASUREMENTS (ID),
+    CONSTRAINT fk_id_electrical_measurement_final FOREIGN KEY (electrical_measurement_final_id) REFERENCES ELECTRICAL_MEASUREMENTS (ID),
     CONSTRAINT fk_id_rate FOREIGN KEY (rate_id) REFERENCES RATES (ID)
 );

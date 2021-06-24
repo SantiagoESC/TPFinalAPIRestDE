@@ -15,8 +15,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,9 +26,7 @@ import java.util.Set;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User implements Serializable {
-
-	private static final long serialVersionUID = 1L;
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -55,7 +54,7 @@ public class User implements Serializable {
 			@JoinColumn(name = "ROLE_ID") })
 	private Set<Role> roles;
 
-	//@OneToMany(mappedBy = "user")
-	//private List<ElectricalMeter> electricalMeters;
+	@OneToMany(mappedBy = "user")
+	private List<ElectricalMeter> electricalMeters;
 	
 }

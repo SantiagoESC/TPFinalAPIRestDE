@@ -7,6 +7,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -17,11 +18,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-//@EnableGlobalMethodSecurity(securedEnabled = true) // Habilitamos la securización de nuestra API con @Secured
-@EnableGlobalMethodSecurity(prePostEnabled = true) // Habilitamos la securización de nuestra API con @Secured
+@EnableGlobalMethodSecurity(prePostEnabled = true) // Habilitamos la securización de nuestra API con @PreAuthorize
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
 
     public WebSecurityConfig(UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
@@ -45,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        // Configuración de la clase que recupera los usuarios y algorito para procesar las passwords
+        // Configuración de la clase que recupera los usuarios y algoritmo para procesar las passwords
         auth.userDetailsService(this.userDetailsService).passwordEncoder(encoder());
     }
 
@@ -55,12 +55,29 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         httpSecurity
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
                 .cors().and()
-                .csrf().ignoringAntMatchers("/login").ignoringAntMatchers("/users").and()
-                .authorizeRequests().antMatchers(HttpMethod.POST, "/login").permitAll() // NOSONAR
+                .csrf().disable()// NOSONAR
+                .authorizeRequests()// NOSONAR
+                .antMatchers(HttpMethod.POST, "/login").permitAll()
                 .anyRequest().authenticated().and()
+                .headers().frameOptions().sameOrigin().and()
                 .addFilterBefore(new JwtAuthenticationFilter(authenticationManager()),
                       UsernamePasswordAuthenticationFilter.class)
                 .addFilterBefore(jwtAuthorizationFilterBean(), UsernamePasswordAuthenticationFilter.class);
+    }
+
+    /**
+     *  Method to ignore URLs to Swagger Documentation, H2 Console and Actuator
+     */
+    @Override
+    public void configure(WebSecurity web) {
+        web.ignoring().antMatchers("/v2/api-docs",
+                "/configuration/ui",
+                "/swagger-resources/**",
+                "/configuration/security",
+                "/swagger-ui.html",
+                "/webjars/**")
+                .antMatchers("/h2/**")
+                .antMatchers(HttpMethod.GET, "/actuator/**");
     }
 
 }

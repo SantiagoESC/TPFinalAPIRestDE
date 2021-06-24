@@ -23,7 +23,7 @@ public class TokenProvider {
 	}
 
 	public static String generateToken(Authentication authentication) {
-		// Genera el token con roles, issuer, date, expiration (8h)
+		// Genera el token con roles, issuer, fecha, expiración (8h)
 		final String authorities = authentication.getAuthorities().stream()
 				.map(GrantedAuthority::getAuthority)
 				.collect(Collectors.joining(","));

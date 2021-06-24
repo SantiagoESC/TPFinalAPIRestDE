@@ -4,12 +4,15 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
 
 @Data
 @Builder
-public class ErrorResponseDTO {
+public class ErrorResponseDTO implements Serializable {
+
+    private static final long serialVersionUID = -5474957506666799610L;
 
     private HttpStatus status;
     private String message;

@@ -34,7 +34,7 @@ public class Address {
     @Column(name = "FLOOR")
     private String floor;
 
-    @Column(name = "DEPARTMENT")
+    @Column(name = "DEPARTAMENT")
     private String department;
 
     @Column(name = "ZIP_CODE")

@@ -1,13 +1,16 @@
-package ar.edu.utn.udee.service;
+package ar.edu.utn.udee.service.impl;
 
 import ar.edu.utn.udee.dto.request.RegisterClientDTO;
+import ar.edu.utn.udee.dto.response.UserResponseDTO;
 import ar.edu.utn.udee.exception.AlreadyExistsException;
 import ar.edu.utn.udee.exception.NotFoundException;
 import ar.edu.utn.udee.mapper.UserDetailsMapper;
+import ar.edu.utn.udee.mapper.UserMapper;
 import ar.edu.utn.udee.models.Role;
 import ar.edu.utn.udee.models.User;
 import ar.edu.utn.udee.repository.RoleRepository;
 import ar.edu.utn.udee.repository.UserRepository;
+import ar.edu.utn.udee.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -43,8 +46,9 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User getUser(long id) {
-		return this.userRepository.findById(id);
+	public UserResponseDTO getUserDTOByDocumentNumber(String documentNumber) {
+		User user = this.getUserByDocumentNumber(documentNumber);
+		return UserMapper.toResponse(user);
 	}
 
 	@Override
@@ -54,23 +58,19 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User saveClient(RegisterClientDTO newClient) {
-		Role userRole = getRoleByName("CLIENT");
+	public UserResponseDTO saveClient(RegisterClientDTO newClient) {
+		Role userRole = this.getRoleByName("CLIENT");
 		Set<Role> roles = new HashSet<>();
 		roles.add(userRole);
 
-		User userExist = this.userRepository.findByDocumentNumber(newClient.getDocumentNumber()).orElse(null);
+		User userExist = this.userRepository
+				.findByDocumentNumber(newClient.getDocumentNumber()).orElse(null);
 
 		if(Objects.nonNull(userExist)){
 			throw new AlreadyExistsException("User already exist!");
 		} else {
-			User userToSave = User.builder()
-					.firstName(newClient.getFirstName())
-					.lastName(newClient.getLastName())
-					.documentNumber(newClient.getDocumentNumber())
-					.password(newClient.getPassword())
-					.roles(roles).build();
-			return userRepository.save(userToSave);
+			User userToSave = UserMapper.clientToEntity(newClient, roles);
+			return UserMapper.toResponse(this.userRepository.save(userToSave));
 		}
 	}
 

@@ -1,6 +1,7 @@
 package ar.edu.utn.udee.controller;
 
 import ar.edu.utn.udee.dto.AuthorizationRequest;
+import ar.edu.utn.udee.dto.request.RegisterClientDTO;
 import ar.edu.utn.udee.utils.Constants;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
@@ -24,9 +25,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class AuthorizationTest {
 
-	private static final String DNI_1 = "123456789";
-	private static final String DNI_2 = "12345678";
-	private static final String DNI_3 = "987654321";
+	private static final String USER_DNI_1 = "123456789";
+	private static final String USER_DNI_2 = "12345678";
+	private static final String USER_DNI_3 = "987654321";
+
+	public static final String USER_NAME = "USER_NAME";
+	private static final String USER_DNI_NEW = "321654987";
+	public static final String USER_PASSWORD = "Test!1234";
 
 	private final ObjectMapper mapper = new ObjectMapper();
 
@@ -35,7 +40,7 @@ class AuthorizationTest {
 
 	@Test
 	void shouldAuthorizeUser() throws Exception {
-		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(DNI_1).password("password1")
+		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(USER_DNI_1).password("password1")
 				.build();
 		final MvcResult mvcResult = mockMvc.perform(
 				post("/login").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(request)))
@@ -46,7 +51,7 @@ class AuthorizationTest {
 
 	@Test
 	void shouldNotAuthorizeUser() throws Exception {
-		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(DNI_1).password("password2")
+		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(USER_DNI_1).password("password2")
 				.build();
 		mockMvc.perform(
 				post("/login").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(request)))
@@ -54,16 +59,16 @@ class AuthorizationTest {
 	}
 
 	@Test
-	void shouldAuthorizeAdminUserToGetUserInfo() throws Exception {
-		String token = getToken(DNI_1, "password1");
+	void shouldAuthorizeAdminUserToGetUserProfile() throws Exception {
+		String token = getToken(USER_DNI_1, "password1");
 
 		mockMvc.perform(
 				get("/users/profile").header(Constants.HEADER_AUTHORIZATION_KEY, token))
 				.andDo(print()).andExpect(status().isOk()).andReturn();
 	}
 
-	private String getToken(String userTest, String password1) throws Exception {
-		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(userTest).password(password1)
+	private String getToken(String userTest, String password) throws Exception {
+		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber(userTest).password(password)
 				.build();
 		final MvcResult mvcResult = mockMvc.perform(
 				post("/login").contentType(MediaType.APPLICATION_JSON).content(mapper.writeValueAsString(request)))
@@ -74,7 +79,7 @@ class AuthorizationTest {
 
 	@Test
 	void shouldAuthorizeUserToGetUserInfo() throws Exception {
-		String token = getToken(DNI_2, "password2");
+		String token = getToken(USER_DNI_2, "password2");
 
 		mockMvc.perform(
 				get("/users/profile").header(Constants.HEADER_AUTHORIZATION_KEY, token))
@@ -83,35 +88,52 @@ class AuthorizationTest {
 
 	@Test
 	void shouldNotAuthorizeOperationalUserToGetUserInfo() throws Exception {
-		String token = getToken(DNI_3, "password2");
+		String token = getToken(USER_DNI_3, "password2");
 
 		mockMvc.perform(
 				get("/users/profile").header(Constants.HEADER_AUTHORIZATION_KEY, token))
 				.andDo(print()).andExpect(status().isForbidden()).andReturn();
 	}
-/*
-	@Test
-	void shouldAuthorizeAdminUserToSave() throws Exception {
-		String token = getToken(DNI_1, "password1");
 
-		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber("111222333").password("password4")
+	@Test
+	void shouldAuthorizeBackOfficeUserToSave() throws Exception {
+		String token = getToken(USER_DNI_1, "password1");
+
+		RegisterClientDTO request = RegisterClientDTO.builder().firstName(USER_NAME).lastName(USER_NAME)
+				.documentNumber(USER_DNI_NEW).password(USER_PASSWORD)
 				.build();
 		mockMvc.perform(
-				post("/users").header(Constants.HEADER_AUTHORIZATION_KEY, token).contentType(MediaType.APPLICATION_JSON)
+				post("/users/clients").header(Constants.HEADER_AUTHORIZATION_KEY, token)
+						.contentType(MediaType.APPLICATION_JSON)
 						.content(mapper.writeValueAsString(request)))
-				.andDo(print()).andExpect(status().isOk());
+				.andDo(print()).andExpect(status().isCreated());
+	}
+
+	@Test
+	void shouldAuthorizeBackOfficeUserToSaveAlreadyExists() throws Exception {
+		String token = getToken(USER_DNI_1, "password1");
+
+		RegisterClientDTO request = RegisterClientDTO.builder().firstName(USER_NAME).lastName(USER_NAME)
+				.documentNumber(USER_DNI_1).password(USER_PASSWORD)
+				.build();
+		mockMvc.perform(
+				post("/users/clients").header(Constants.HEADER_AUTHORIZATION_KEY, token)
+						.contentType(MediaType.APPLICATION_JSON)
+						.content(mapper.writeValueAsString(request)))
+				.andDo(print()).andExpect(status().isInternalServerError());
 	}
 
 	@Test
 	void shouldNotAuthorizeOperationalUserToSave() throws Exception {
-		String token = getToken(DNI_3, "password2");
+		String token = getToken(USER_DNI_3, "password2");
 
-		AuthorizationRequest request = AuthorizationRequest.builder().documentNumber("11223344").password("password4")
+		RegisterClientDTO request = RegisterClientDTO.builder().firstName(USER_NAME).lastName(USER_NAME)
+				.documentNumber(USER_DNI_NEW).password(USER_PASSWORD)
 				.build();
 		mockMvc.perform(
-				post("/users").header(Constants.HEADER_AUTHORIZATION_KEY, token).contentType(MediaType.APPLICATION_JSON)
+				post("/users/clients").header(Constants.HEADER_AUTHORIZATION_KEY, token).contentType(MediaType.APPLICATION_JSON)
 						.content(mapper.writeValueAsString(request)))
 				.andDo(print()).andExpect(status().isForbidden()).andReturn();
 	}
-*/
+
 }
