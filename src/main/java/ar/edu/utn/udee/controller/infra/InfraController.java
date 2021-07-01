@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/infra")
 @PreAuthorize("hasRole('ROLE_INFRA')") // NOSONAR
@@ -26,7 +28,7 @@ public class InfraController {
     }
 
     @PostMapping("/electrical-measurement")
-    public ResponseEntity<Void> addMeasurement(@RequestBody MeasurementRequestDTO mesurement){
+    public ResponseEntity<Void> addMeasurement(@Valid @RequestBody MeasurementRequestDTO mesurement){
         ElectricalMeasurement measurement = this.infraService.addMeasurement(mesurement);
         return ResponseEntity.created(UriUtils.getLocation(measurement.getId())).build();
     }

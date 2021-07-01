@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface BillRepository extends JpaRepository<Bill, Integer> {
 
-    @Query(value = "SELECT documentNumber, fullName, electricalMeter, address, rateType, priceByRate, " +
+    @Query(value = "SELECT documentNumber, fullName, electricalMeter, address, rateType, ratePrice, " +
             "measurementDateInitial, measurementInitial, measurementDateFinal, measurementFinal, expirationDate, " +
             "measurementTotalKWH, totalAmount, isPaid FROM v_bills " +
             "WHERE documentNumber = :documentNumber AND isPaid = :isPaid; ", nativeQuery = true)

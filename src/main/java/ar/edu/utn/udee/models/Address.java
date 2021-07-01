@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ADDRESS")
+@Table(name = "ADDRESSES")
 @Data
 @Builder
 @AllArgsConstructor
@@ -34,7 +34,7 @@ public class Address {
     @Column(name = "FLOOR")
     private String floor;
 
-    @Column(name = "DEPARTAMENT")
+    @Column(name = "DEPARTMENT")
     private String department;
 
     @Column(name = "ZIP_CODE")

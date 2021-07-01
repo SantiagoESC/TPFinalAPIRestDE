@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -43,12 +42,16 @@ public class ElectricalMeter {
     @Column(name = "IS_ENABLED", columnDefinition = "boolean default true")
     private Boolean isEnabled;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "id", nullable = false)
+    @OneToOne
+    @JoinColumn(name = "ADDRESS_ID", referencedColumnName = "ID", nullable = false)
     private Address address;
 
+    @OneToOne
+    @JoinColumn(name = "RATE_ID", referencedColumnName = "ID")
+    private Rate rate;
+
     @ManyToOne
-    @JoinColumn(name = "USER_ID", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "USER_ID", referencedColumnName = "ID", nullable = false)
     private User user;
 
     @OneToMany(mappedBy = "electricalMeter")

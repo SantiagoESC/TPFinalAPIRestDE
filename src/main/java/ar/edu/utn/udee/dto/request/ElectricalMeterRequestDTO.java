@@ -1,7 +1,9 @@
 package ar.edu.utn.udee.dto.request;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -9,12 +11,14 @@ import java.io.Serializable;
 
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ElectricalMeterRequestDTO implements Serializable {
 
     private static final long serialVersionUID = -3028598394395472657L;
 
     @Size(min = 7, max = 9)
-    @NotBlank(message = "Ducument Number is mandatory")
+    @NotBlank(message = "Document Number is mandatory")
     private String documentNumber;
 
     @Size(min=1, max=32)
@@ -29,8 +33,6 @@ public class ElectricalMeterRequestDTO implements Serializable {
     @NotBlank(message = "Street name is mandatory")
     private String streetName;
 
-    @Size(min = 1, max = 6)
-    @NotBlank(message = "Street number is mandatory")
     private Integer streetNumber;
 
     @Size(min = 1, max = 2)

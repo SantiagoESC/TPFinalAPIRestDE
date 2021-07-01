@@ -17,7 +17,7 @@ public class BillsResponseDTO {
     private String address;
 
     private String rateType;
-    private Double priceByRate;
+    private Double ratePrice;
 
     private LocalDate measurementDateInitial;
     private Double measurementInitial;

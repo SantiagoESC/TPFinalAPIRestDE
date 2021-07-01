@@ -25,6 +25,7 @@
             **/dto/**,
             **/exception/**,
             **/models/**,
+            **/mapper/**,
             **/repository/**,
             **/utils/**,
             **/UdeeApplication.java
@@ -129,6 +130,7 @@
                         <exclude>**/dto/**</exclude>
                         <exclude>**/exception/**</exclude>
                         <exclude>**/models/**/*</exclude>
+                        <exclude>**/mapper/**/*</exclude>
                         <exclude>**/repository/**</exclude>
                         <exclude>**/utils/**</exclude>
                         <exclude>**/*Application.class</exclude>

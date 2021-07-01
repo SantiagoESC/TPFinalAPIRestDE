@@ -25,8 +25,8 @@ public class ElectricalMeterMapper {
                 + electricalMeter.getAddress().getZipCode() + ", " + electricalMeter.getAddress().getCity();
         // Av Colon 1231, PB/4, 7600, Mar del Plata
 
-        final String strElectricalMeter = electricalMeter.getModel() + ",  " + electricalMeter.getModel()
-                + ",  " + electricalMeter.getSerialNumber();
+        final String strElectricalMeter = electricalMeter.getBrand() + ", " + electricalMeter.getModel()
+                + ", " + electricalMeter.getSerialNumber();
 
         return ElectricalMeterResponseDTO.builder()
                 .address(address)

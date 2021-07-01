@@ -28,6 +28,6 @@ public class Rate {
     @Column(name = "TYPE_RATE")
     private String typeRate;
 
-    @Column(name = "PRICE")
+    @Column(name = "PRICE_KWH")
     private float price;
 }

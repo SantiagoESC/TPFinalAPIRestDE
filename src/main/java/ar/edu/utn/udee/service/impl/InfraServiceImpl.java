@@ -35,7 +35,7 @@ public class InfraServiceImpl implements InfraService {
         ElectricalMeasurement newMeasurement = ElectricalMeasurement.builder()
                 .electricalMeter(electricalMeter)
                 .measurementKWH(measurement.getMeasurementKWH())
-                .measurementDate(measurement.getDate()).build();
+                .measurementDateTime(measurement.getDate()).build();
 
         return this.electricalMeasurementRepository.save(newMeasurement);
     }

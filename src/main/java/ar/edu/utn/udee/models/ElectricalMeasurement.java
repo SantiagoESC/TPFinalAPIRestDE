@@ -16,7 +16,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "ELECTRICAL_MEASURMENTS")
+@Table(name = "ELECTRICAL_MEASUREMENTS")
 @Data
 @Builder
 @AllArgsConstructor
@@ -33,7 +33,7 @@ public class ElectricalMeasurement {
     private ElectricalMeter electricalMeter;
 
     @Column(name = "MEASUREMENT_DATE")
-    private LocalDateTime measurementDate;
+    private LocalDateTime measurementDateTime;
 
     @Column(name = "MEASUREMENT_KWH")
     private Double measurementKWH;

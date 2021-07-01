@@ -171,7 +171,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQ4MzEzNiwiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NTExOTM2fQ.6oP_1Gt6KqHJJrPihkcTD1g1VuxnTb0REKGV9wTUtao",
 									"type": "string"
 								}
 							]
@@ -240,7 +240,98 @@
 		},
 		{
 			"name": "Web & Android Controller",
-			"item": []
+			"item": [
+				{
+					"name": "consumo de energía",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3OCIsIkNMQUlNX1RPS0VOIjoiUk9MRV9DTElFTlQiLCJpYXQiOjE2MjUwOTUwMTQsImlzcyI6IklTU1VFUiIsImV4cCI6MTYyNTEyMzgxNH0.zNg-AFRTHXx8gA9Li2LR5oxTh_BVMMKR2CzEII9_Yxk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:9001/web/energy-consumption?from=01-01-2021 00:10:00&to=01-01-2021 00:25:00",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"web",
+								"energy-consumption"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "01-01-2021 00:10:00"
+								},
+								{
+									"key": "to",
+									"value": "01-01-2021 00:25:00"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Consulta de mediciones por rango de fechas",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3OCIsIkNMQUlNX1RPS0VOIjoiUk9MRV9DTElFTlQiLCJpYXQiOjE2MjUxMDE5MjUsImlzcyI6IklTU1VFUiIsImV4cCI6MTYyNTEzMDcyNX0.tsmjIYT_GSgnkO1y8j5a9W07lCbHDJeskG1MxzsSH2c",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9001/web/electrical-measurements?from=01-01-2021 00:10:00&to=01-01-2021 00:25:00",
+							"host": [
+								"localhost"
+							],
+							"port": "9001",
+							"path": [
+								"web",
+								"electrical-measurements"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "01-01-2021 00:10:00"
+								},
+								{
+									"key": "to",
+									"value": "01-01-2021 00:25:00"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "Infra Controller",
@@ -253,7 +344,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIxMjM0NTY3ODkiLCJDTEFJTV9UT0tFTiI6IlJPTEVfQkFDS09GRklDRSxST0xFX0NMSUVOVCIsImlhdCI6MTYyNDQxMjQxMywiaXNzIjoiSVNTVUVSIiwiZXhwIjoxNjI0NDQxMjEzfQ.Jv5moD_p0L-800iefePkrLyka4waPwIGkvCtLM6SrAA",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5ODc2NTQzMjEiLCJDTEFJTV9UT0tFTiI6IlJPTEVfSU5GUkEiLCJpYXQiOjE2MjQ1NzkwOTIsImlzcyI6IklTU1VFUiIsImV4cCI6MTYyNDYwNzg5Mn0.pnPDjEAUrnfSFRtA4qu58yM4CqdhEwEn7-Wvrjhnbys",
 									"type": "string"
 								}
 							]
@@ -352,7 +443,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user\": \"123456789\",\r\n    \"password\": \"password1\"\r\n}",
+					"raw": "{\r\n    \"user\": \"12345678\",\r\n    \"password\": \"password2\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

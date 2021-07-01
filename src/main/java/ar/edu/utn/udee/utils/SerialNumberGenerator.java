@@ -16,7 +16,7 @@ public class SerialNumberGenerator {
     private static final String ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private int splitInto = 1;
     private char splitter = '-';
-    private boolean isToSplit = false;
+    private boolean isToSplit = true;
     private int length = 4;
     private final Random random = new SecureRandom();
 
@@ -41,7 +41,7 @@ public class SerialNumberGenerator {
         }
 
         StringBuilder sb = new StringBuilder();
-        int spacer = 0;
+        int spacer = 3;
         int tempLength = length;
 
         while (tempLength > 0) {

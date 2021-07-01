@@ -14,7 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "BILLS")
@@ -30,10 +30,10 @@ public class Bill {
     private Long id;
 
     @Column(name = "DATE_BILL")
-    private Date dateBill;
+    private LocalDateTime dateBill;
 
     @Column(name = "EXPIRATION_DATE")
-    private Date expirationDate;
+    private LocalDateTime expirationDate;
 
     @Column(name = "IS_PAID")
     private boolean isPaid;
@@ -44,10 +44,6 @@ public class Bill {
     @ManyToOne
     @JoinColumn(name = "ELECTRICAL_METER_ID", referencedColumnName = "ID", nullable = false)
     private ElectricalMeter electricalMeter;
-
-    @OneToOne
-    @JoinColumn(name = "RATE_ID", referencedColumnName = "ID")
-    private Rate rateId;
 
     @OneToOne
     @JoinColumn(name = "ELECTRICAL_MEASUREMENT_INITIAL_ID",
